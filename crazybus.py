@@ -8,7 +8,7 @@ TICKS_PER_BEAT = 120
 
 def pitch_to_hz(pitch: int) -> float:
     """Convert 10-bit pitch to frequency in Hz"""
-    return 3579545 / (32 * (1024 - pitch))
+    return 3579545 / (32 * (1023 - pitch))
 
 def hz_to_note(frequency: float) -> float:
     """Convert frequency in Hz to MIDI note number as float"""
