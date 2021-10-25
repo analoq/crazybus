@@ -4,6 +4,7 @@ from random import randrange
 from mido import Message, MetaMessage, MidiFile, MidiTrack, bpm2tempo
 
 MEASURES = 32
+BPM = 90
 TICKS_PER_BEAT = 120
 
 def pitch_to_hz(pitch: int) -> float:
@@ -24,6 +25,7 @@ def bend_for_note(note: float) -> int:
 
 def test():
     """Test methods"""
+    assert round(pitch_to_hz(440)) == 192
     assert hz_to_note(880.0) == 69+12
     assert hz_to_note(440.0) == 69+0
     assert hz_to_note(220.0) == 69-12
@@ -33,7 +35,7 @@ def main():
     """Main program"""
     mid = MidiFile(ticks_per_beat=TICKS_PER_BEAT)
     tempo_track = MidiTrack()
-    tempo_track.append(MetaMessage('set_tempo', time=0, tempo=bpm2tempo(90)))
+    tempo_track.append(MetaMessage('set_tempo', time=0, tempo=bpm2tempo(BPM)))
     mid.tracks.append(tempo_track)
     mid.tracks.append(MidiTrack())
     mid.tracks.append(MidiTrack())
