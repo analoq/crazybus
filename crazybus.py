@@ -1,7 +1,7 @@
 """Generate Crazybus music and save to MIDI file"""
 from math import log2
 from random import randrange
-from mido import Message, MetaMessage, MidiFile, MidiTrack, bpm2tempo
+from mido import Message, MetaMessage, MidiFile, MidiTrack, bpm2tempo # type: ignore
 
 MEASURES = 32
 BPM = 90

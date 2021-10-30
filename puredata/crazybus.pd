@@ -1,0 +1,18 @@
+#N canvas 0 23 1321 752 12;
+#X obj 444 220 phasor~;
+#X obj 445 268 expr~ $v1 > 0.5;
+#X obj 443 182 expr 3579545/(32*(1023-$f1));
+#X obj 424 59 random 40;
+#X obj 427 90 * 10;
+#X obj 443 150 % 1024;
+#X obj 409 26 inlet;
+#X obj 445 308 outlet~;
+#X obj 436 119 + \$1;
+#X connect 0 0 1 0;
+#X connect 1 0 7 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 8 0;
+#X connect 5 0 2 0;
+#X connect 6 0 3 0;
+#X connect 8 0 5 0;
